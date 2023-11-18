@@ -1,0 +1,19 @@
+// For Node.js environment using readline
+const readline = require('readline');
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question("Enter numbers separated by commas: ", function(inputArray) {
+    var numbers = inputArray.split(',').map(Number); // Convert input to an array of numbers
+
+    // Sorting in descending order
+    numbers.sort(function(a, b) {
+        return b - a;
+    });
+
+    // Output the sorted array
+    console.log("Sorted array in descending order: " + numbers);
+    rl.close();
+});

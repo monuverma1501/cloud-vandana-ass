@@ -1,0 +1,35 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+
+public class ShuffleArray {
+    public static void main(String[] args) {
+        // Create a Scanner object to take input from the user
+        Scanner scanner = new Scanner(System.in);
+
+        // Get the size of the array from the user
+        System.out.print("Enter the size of the array: ");
+        int size = scanner.nextInt();
+
+        // Create an array list to store the values
+        List<Integer> arrayList = new ArrayList<>();
+
+        // Get the values from the user
+        System.out.println("Enter the values for the array:");
+        for (int i = 0; i < size; i++) {
+            System.out.print("Enter value #" + (i + 1) + ": ");
+            int value = scanner.nextInt();
+            arrayList.add(value);
+        }
+
+        // Shuffle the array
+        Collections.shuffle(arrayList);
+
+        // Print the shuffled array
+        System.out.println("Shuffled array: " + arrayList);
+
+        // Close the scanner to avoid resource leak
+        scanner.close();
+    }
+}

@@ -1,0 +1,45 @@
+
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
+public class PangramChecker {
+    public static void main(String[] args) {
+        // Create a Scanner object to take input from the user
+        Scanner scanner = new Scanner(System.in);
+
+        // Get the input sentence from the user
+        System.out.print("Enter a sentence: ");
+        String inputSentence = scanner.nextLine().toLowerCase(); // Convert to lowercase for case-insensitivity
+
+        // Call the method to check if it's a pangram
+        boolean isPangram = checkIfPangram(inputSentence);
+
+        // Print the result
+        if (isPangram) {
+            System.out.println("The entered sentence is a pangram.");
+        } else {
+            System.out.println("The entered sentence is not a pangram.");
+        }
+
+        // Close the scanner to avoid resource leak
+        scanner.close();
+    }
+
+    public static boolean checkIfPangram(String s) {
+        // Create a set to store the unique letters in the sentence
+        Set<Character> uniqueLetters = new HashSet<>();
+
+        // Iterate through each character in the sentence
+        for (char c : s.toCharArray()) {
+            // Check if it is an alphabet letter
+            if (Character.isAlphabetic(c)) {
+                // Add the lowercase version of the letter to the set
+                uniqueLetters.add(Character.toLowerCase(c));
+            }
+        }
+
+        // Check if the set size is equal to the number of alphabets (26)
+        return uniqueLetters.size() == 26;
+    }
+}
